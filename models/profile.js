@@ -11,7 +11,7 @@ const profileSchema = new mongoose.Schema(
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
     postLikes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
     commentLikes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
-    profilePic: { type: String },
+    photo: { type: String },
   },
   {
     timestamps: true,
