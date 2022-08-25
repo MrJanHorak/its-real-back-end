@@ -18,15 +18,28 @@ function create(req, res) {
     });
 }
 
-function show(req, res){
+function show(req, res) {
   Post.findById(req.params.id)
-  .then((post) => {
-    res.status(200).json(post)
-  })
-  .catch((err) => {
-    console.log(err);
-    res.status(500).json(err)
-  });
+    .then((post) => {
+      res.status(200).json(post);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 }
 
-export { index, create, show };
+function update(req, res) {
+  Post.findById(req.params.id)
+    .then((post) => {
+      post.updateOne(req.body, { new: true }).then(() => {
+        res.status(200).json(post);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+}
+
+export { index, create, show, update };
