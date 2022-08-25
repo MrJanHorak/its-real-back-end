@@ -10,6 +10,19 @@ function index(req, res) {
     });
 }
 
+function showProfile(req, res) {
+  Profile.findById(req.params.id)
+    .populate("posts")
+    .populate("comments")
+    .populate("postLikes")
+    .populate("commentLikes")
+    .then(res.status(200).json(profile))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+}
+
 function addPhoto(req, res) {
   const imageFile = req.files.photo.path;
   Profile.findById(req.params.id).then((profile) => {
@@ -28,4 +41,4 @@ function addPhoto(req, res) {
   });
 }
 
-export { index, addPhoto };
+export { index, showProfile, addPhoto };
