@@ -23,6 +23,19 @@ function showProfile(req, res) {
     });
 }
 
+function updateProfile(req, res) {
+  Profile.findById(req.params.id)
+    .then((profile) => {
+      profile.updateOne(req.body, { new: true }).then(() => {
+        res.status(200).json(profile);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+}
+
 function addPhoto(req, res) {
   const imageFile = req.files.photo.path;
   Profile.findById(req.params.id).then((profile) => {
@@ -41,4 +54,4 @@ function addPhoto(req, res) {
   });
 }
 
-export { index, showProfile, addPhoto };
+export { index, showProfile, updateProfile, addPhoto };
