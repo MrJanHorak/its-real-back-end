@@ -9,4 +9,13 @@ function index(req, res) {
     });
 }
 
-export { index };
+function create(req, res) {
+  Comment.create(req.body)
+  .then(res.status(201).json(req.body))
+  .catch((err) =>{
+    console.log(err);
+    res.stauts(500).json(err);
+  })
+}
+
+export { index, create };
