@@ -43,7 +43,7 @@ function update(req, res) {
 }
 
 function deletePost(req, res) {
-  Post.findById(req.parrams.id)
+  Post.findById(req.params.id)
     .then((post) => {
       post.delete().then(() => {
         res.status(204).end();

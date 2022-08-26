@@ -42,4 +42,17 @@ function update(req, res) {
     });
 }
 
-export { index, create };
+function deleteComment(req, res) {
+  Comment.findById(req.params.id)
+    .then((comment) => {
+      comment.delete().then(() => {
+        res.status(204).end();
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+}
+
+export { index, create, show, update, deleteComment as delete };
