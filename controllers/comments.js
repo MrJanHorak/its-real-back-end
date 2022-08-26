@@ -29,4 +29,17 @@ function show(req, res) {
     });
 }
 
+function update(req, res) {
+  Comment.findById(req.params.id)
+    .then((comment) => {
+      comment.updateOne(req.body, { new: true }).then(() => {
+        res.status(200).json(comment);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+}
+
 export { index, create };
