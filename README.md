@@ -7,7 +7,10 @@ My team was tasked to create a climate focused app. During out ideation process 
 
 In the weeks that followed a few more ideas have come up and I will probably come up with a few more ideas as I begin the process of planning this app.
 
-## For not the MVP goals are: 
+## Front-End Repo
+[It's real front-end repo found here.](https://github.com/MrJanHorak/its-real)
+
+## The MVP goals are: 
 
 * Use of a map
 * Create markers 
