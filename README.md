@@ -9,7 +9,7 @@ In the weeks that followed a few more ideas have come up and I will probably com
 
 ## Front-End Repo
 [It's real front-end repo found here.](https://github.com/MrJanHorak/its-real)
-git 
+
 ## The MVP goals are: 
 
 * Use of a map
